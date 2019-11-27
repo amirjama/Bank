@@ -11,10 +11,35 @@ namespace Bank
         public CheckingAccount() //konstruktor
         {
             AccountType = "CheckingsAccount";
-            Balance = 10000;
-            Credit = 3403;
-
-
+            Credit = 1000;
+            
         }
+
+
+        public override bool  MakeWithdrawal(decimal amount)
+        {
+            
+            if (!base.MakeWithdrawal(amount))
+            {
+                if (Balance  + Credit >= amount)
+                {
+                 
+                 Credit -=  amount - Balance ;
+                 Balance -= amount;
+                   return true;
+                }
+            }
+
+            else if (Balance >= amount)
+            {
+                Balance -= amount;
+                return true;
+            }
+            return false;
+        }
+
+       
+
+        
     }
 }

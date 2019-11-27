@@ -14,10 +14,42 @@ namespace Bank
         public string LastName { get; set; }
 
         public int Cellphone { get; set; }
+        private List<BankAccount> Accounts { get; set; }
 
-       public List<BankAccount> Accounts = new List<BankAccount>();
+        public Customer()
+        {
+            Accounts = new List<BankAccount>();
+        }
+        public List<BankAccount> GetMyList()
+        {
+
+            return Accounts;
+        }
 
 
-     
+        public void AddAccount(BankAccount bankAccount)
+        {
+
+            Accounts.Add(bankAccount);
+
+        }
+
+        public override string ToString()// skriver ut mina propbertis 
+        {
+
+            return $" {FirstName} {LastName} {Cellphone}";
+
+        }
+
+
+
+        //foreach (BankAccount d in Accounts )
+        //    {
+
+        //    }
+
+
+
+
     }
 }

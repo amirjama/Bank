@@ -11,10 +11,9 @@ namespace Bank
        public  SavingsAccount()
         {
             AccountType = "CheckingsAccount";
-            Balance = 10000;
             Credit = 0;
-
         }
-      
+       
+
     }
 }

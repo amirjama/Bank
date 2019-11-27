@@ -11,10 +11,23 @@ namespace Bank
         public RetirementAccount()
         {
             AccountType = "RetirementAccount";
-            Balance = 10000;
             Credit = 0;
 
-
         }
+
+        public override bool MakeWithdrawal(decimal amount)
+        {
+
+            if (Balance >= amount * (decimal)1.1)
+            {
+
+                Balance -= amount * (decimal)1.1;
+                return true;
+            }
+            return false;
+
+            
+        }
+
     }
 }

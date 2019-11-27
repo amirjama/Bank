@@ -38,40 +38,54 @@ namespace Bank
             Customer c = new Customer()
             {
 
-                FirstName="amir",
-                LastName="jama",
-               Cellphone = 234214
+                FirstName = "amir",
+                LastName = "jama",
+                Cellphone = 234214
             };
-
-       
             List<Customer> customers = new List<Customer>();
             customers.Add(c);
 
-            SavingsAccount s = new SavingsAccount()
-            {
-                AccountType = "sparkonto",
-                Balance= 6000,
-                Credit= 0
 
-            };
-            c.Accounts.Add(s);
+            BankAccount bankAccount;
+            bankAccount = new SavingsAccount();
+            c.AddAccount(bankAccount);
 
-            RetirementAccount r = new RetirementAccount() 
-            {
-                AccountType = "Pensionsspar",
-                Balance = 6000,
-                Credit = 0
+            BankAccount bankAccount2;
+            bankAccount2  = new RetirementAccount();
+            c.AddAccount(bankAccount2);
 
-            };
-
-            c.Accounts.Add(r);
+            BankAccount bankAccount3;
+            bankAccount3  = new CheckingAccount();
+            c.AddAccount(bankAccount3);
 
 
-
-             MessageBox.Show($"du har {s}");
+            MessageBox.Show(c.ToString());
             
+             
+            bankAccount3.MakeDeposit(3243);
+            bankAccount3.MakeWithdrawal(4000);
+            MessageBox.Show(bankAccount3.Balance.ToString());
+
+
+
+            //MessageBox.ShowMakeWithdrawal(343).ToString());
+
+
+            //Assignment assignment = new Assignment();
+            ////assignment.Accounts.Add();
+            //if (assignment. > 3)
+            //{
+
+
+
+            //}
+
+
+
+
 
 
         }
+        
     }
 }

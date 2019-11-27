@@ -8,57 +8,32 @@ namespace Bank
 {
     public abstract class BankAccount 
     {
-        public string AccountType { get;  set;}
-        public decimal Balance { get;  set; } 
-        public int Credit { get;  set;}
+        public string AccountType { get; protected set;}
+        public decimal Balance { get; protected set; } 
+        public decimal Credit { get; protected set;}
 
-        public decimal MakeDeposit(int amount, DateTime date)
+        public virtual void MakeDeposit(decimal amount)
         {
-
             
-
-            return Balance += amount;
-                 
-          
-           
+                Balance += amount;
+         
         }
 
-        public  double MakeWithdrawal(decimal amount)
+        public  virtual bool MakeWithdrawal(decimal amount)
         {
-            if (BalanceWatch(amount))
+           
+            if (Balance >= amount)
             {
                 Balance -= amount;
-            }
-
-            else if (!BalanceWatch(amount))
-            {
-              amount= amount;
-            }
-           
-
-        }
-
-        public bool BalanceWatch(decimal amount)
-        {
-            if (Balance <= amount)
-            {
-              
-
                 return true;
-
             }
-            else
-            {
-                return false;
-            }
-
-
-
+            return false;
         }
 
-        public void AddCustomer(string costomer)
+        public virtual string ToString1()// skriver ut mina propbertis 
         {
 
+            return $"{Balance} {Credit} {AccountType}";
 
         }
 
