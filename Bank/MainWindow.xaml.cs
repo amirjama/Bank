@@ -35,6 +35,8 @@ namespace Bank
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+           
+          
             Customer c = new Customer()
             {
 
@@ -68,7 +70,7 @@ namespace Bank
 
 
 
-            //MessageBox.ShowMakeWithdrawal(343).ToString());
+            
 
 
             //Assignment assignment = new Assignment();
