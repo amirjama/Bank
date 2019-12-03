@@ -33,61 +33,70 @@ namespace Bank
 
         }
 
+     
+        BankAccount bankAccount;
+        List<Customer> customers = new List<Customer>();
         private void Button_Click(object sender, RoutedEventArgs e)
         {
            
-          
-            Customer c = new Customer()
-            {
-
-                FirstName = "amir",
-                LastName = "jama",
-                Cellphone = 234214
-            };
-            List<Customer> customers = new List<Customer>();
-            customers.Add(c);
-
-
-            BankAccount bankAccount;
-            bankAccount = new SavingsAccount();
-            c.AddAccount(bankAccount);
-
-            BankAccount bankAccount2;
-            bankAccount2  = new RetirementAccount();
-            c.AddAccount(bankAccount2);
-
-            BankAccount bankAccount3;
-            bankAccount3  = new CheckingAccount();
-            c.AddAccount(bankAccount3);
-
-
             MessageBox.Show(c.ToString());
             
-             
-            bankAccount3.MakeDeposit(3243);
-            bankAccount3.MakeWithdrawal(4000);
-            MessageBox.Show(bankAccount3.Balance.ToString());
 
+        }
+        Customer c;
+        private void btnSaveCustomer_Click(object sender, RoutedEventArgs e)
+        {
 
+             c= new Customer()
+            {
 
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Cellphone = decimal.Parse(txtCellPhone.Text)
+
+            };
+            customers.Add(c);
             
-
-
-            //Assignment assignment = new Assignment();
-            ////assignment.Accounts.Add();
-            //if (assignment. > 3)
-            //{
-
-
-
-            //}
-
-
-
-
+            coboCustomer.ItemsSource= customers;
 
 
         }
-        
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            coboCustomer.SelectedItem = c as Customer;
+
+            //if (txtAddCredit != null)
+            //{
+            //    bankAccount.AddCredit(decimal.Parse(txtAddCredit.Text));
+            //}  
+
+
+            if ((bool)radioBtnCheckingAccount.IsChecked)
+            {
+            BankAccount bankAccount = new SavingsAccount();
+            c.AddAccount(bankAccount);
+
+            }
+
+            if ((bool)radioBtnRetirementAccount.IsChecked)
+            {
+
+             bankAccount = new RetirementAccount();
+            c.AddAccount(bankAccount);
+
+            }
+            if ((bool)radioBtnSavingsAccount.IsChecked)
+            {
+
+                //BankAccount bankAccount3;
+                bankAccount = new CheckingAccount();
+               c.AddAccount(bankAccount);
+
+            }
+
+
+        }
     }
 }

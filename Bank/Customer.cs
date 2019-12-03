@@ -13,7 +13,7 @@ namespace Bank
 
         public string LastName { get; set; }
 
-        public int Cellphone { get; set; }
+        public decimal Cellphone { get; set; }
         private List<BankAccount> Accounts { get; set; }
 
         public Customer()

@@ -30,6 +30,14 @@ namespace Bank
             return false;
         }
 
+        public virtual void AddCredit(decimal amount)
+        {
+
+            Credit += amount;
+
+
+        }
+
         public virtual string ToString1()// skriver ut mina propbertis 
         {
 

@@ -38,6 +38,14 @@ namespace Bank
             return false;
         }
 
+        public override void AddCredit(decimal amount) 
+        {
+
+            Credit += amount;
+        
+        
+        }
+
        
 
         
