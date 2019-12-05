@@ -11,7 +11,7 @@ namespace Bank
         public CheckingAccount() //konstruktor
         {
             AccountType = "CheckingsAccount";
-            Credit = 1000;
+            Credit = 0;
             
         }
 

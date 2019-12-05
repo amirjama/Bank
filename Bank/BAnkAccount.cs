@@ -38,12 +38,19 @@ namespace Bank
 
         }
 
-        public virtual string ToString1()// skriver ut mina propbertis 
+        //public virtual string ToString1(string accont)// skriver ut mina propbertis 
+        //{
+
+        //    return $"{Balance} {Credit} {AccountType}";
+
+        //}
+
+
+        public override string ToString()
         {
-
-            return $"{Balance} {Credit} {AccountType}";
-
+            return AccountType + ": " + Balance + " kr";
         }
+
 
     }
 }

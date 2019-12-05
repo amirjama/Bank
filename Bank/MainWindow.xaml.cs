@@ -26,28 +26,34 @@ namespace Bank
         public MainWindow()
         {
             InitializeComponent();
-           
-         
-
-
-
+          
         }
 
-     
-        BankAccount bankAccount;
         List<Customer> customers = new List<Customer>();
+        Customer ActiveCustomer = new Customer();
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
-            MessageBox.Show(c.ToString());
-            
+
+            if ((bool)radioBtnMakeDeposit.IsChecked)
+            {
+                bankAccount.MakeDeposit(decimal.Parse(txtMoney.Text));
+            }
+
+            else if ((bool)radioBtnMakeWithdrawal.IsChecked)
+            {
+                bankAccount.MakeWithdrawal(decimal.Parse(txtMoney.Text));
+
+            }
 
         }
-        Customer c;
+
+
+
         private void btnSaveCustomer_Click(object sender, RoutedEventArgs e)
         {
 
-             c= new Customer()
+             Customer ActiveCustomer = new Customer()
             {
 
                 FirstName = txtFirstName.Text,
@@ -55,48 +61,57 @@ namespace Bank
                 Cellphone = decimal.Parse(txtCellPhone.Text)
 
             };
-            customers.Add(c);
+            customers.Add(ActiveCustomer);
             
             coboCustomer.ItemsSource= customers;
 
 
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+            BankAccount bankAccount;
+        public void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
-            coboCustomer.SelectedItem = c as Customer;
-
-            //if (txtAddCredit != null)
-            //{
-            //    bankAccount.AddCredit(decimal.Parse(txtAddCredit.Text));
-            //}  
-
 
             if ((bool)radioBtnCheckingAccount.IsChecked)
             {
-            BankAccount bankAccount = new SavingsAccount();
-            c.AddAccount(bankAccount);
 
-            }
-
-            if ((bool)radioBtnRetirementAccount.IsChecked)
-            {
-
-             bankAccount = new RetirementAccount();
-            c.AddAccount(bankAccount);
-
-            }
-            if ((bool)radioBtnSavingsAccount.IsChecked)
-            {
-
-                //BankAccount bankAccount3;
                 bankAccount = new CheckingAccount();
-               c.AddAccount(bankAccount);
+                ActiveCustomer.AddAccount(bankAccount);
+            }
+
+            else if ((bool)radioBtnRetirementAccount.IsChecked)
+            {
+
+                bankAccount = new RetirementAccount();
+                ActiveCustomer.AddAccount(bankAccount);
+
+            }
+            else if ((bool)radioBtnSavingsAccount.IsChecked)
+            {
+
+                bankAccount = new SavingsAccount();
+                ActiveCustomer.AddAccount(bankAccount);
 
             }
 
+
+            if (0 < decimal.Parse(txtAddCredit.Text))
+            {
+                bankAccount.AddCredit(decimal.Parse(txtAddCredit.Text));
+            }
+
+
+
+            coboAccount.ItemsSource = null;
+            coboAccount.ItemsSource = ActiveCustomer.GetMyList();
 
         }
+
+
+        private void coboCustomer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+       
+
     }
 }

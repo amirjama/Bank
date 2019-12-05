@@ -43,14 +43,5 @@ namespace Bank
         }
 
 
-
-        //foreach (BankAccount d in Accounts )
-        //    {
-
-        //    }
-
-
-
-
     }
 }

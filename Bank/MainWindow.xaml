@@ -10,7 +10,7 @@
         <Button x:Name="btnMoney" Content="Ok" HorizontalAlignment="Left" Margin="19,390,0,0" VerticalAlignment="Top" Width="51" Click="Button_Click"/>
         <Label Content="Välj kund " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,64,0,0" Width="75" Foreground="White"/>
         <Label Content="Bank" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="50" Foreground="#FFFDF9F9" FontSize="16"/>
-        <ComboBox x:Name="coboCustomer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="425" Margin="10,95,0,0"/>
+        <ComboBox x:Name="coboCustomer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="425" Margin="10,95,0,0" SelectionChanged="coboCustomer_SelectionChanged"/>
         <Label Content="Kontouppifter" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,135,0,0" Foreground="#FFF9F9F9"/>
         <ComboBox x:Name="coboAccount" HorizontalAlignment="Left" VerticalAlignment="Top" Width="425" Margin="10,166,0,0"/>
         <Label Content="Hantera transaktioner" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,229,0,0" Width="150" Foreground="White" FontSize="14"/>
@@ -42,7 +42,7 @@
         <RadioButton x:Name="radioBtnSavingsAccount" Content="Sparkonto" HorizontalAlignment="Left" Margin="515,311,-161,0" VerticalAlignment="Top" Width="100" Foreground="White"/>
         <RadioButton x:Name="radioBtnRetirementAccount" Content="Penssionsspar" HorizontalAlignment="Left" Margin="515,335,-161,0" VerticalAlignment="Top" Width="100" Foreground="White"/>
         <Button x:Name="btnSaveCustomer" Content="Spara" HorizontalAlignment="Left" Margin="516,202,-137,0" VerticalAlignment="Top" Width="75" Click="btnSaveCustomer_Click"/>
-        <TextBox x:Name="txtAddCredit" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Margin="516,378,-292,0"/>
+        <TextBox x:Name="txtAddCredit" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Margin="516,378,-292,0" Text="0"/>
         <Label Content="Kredit" HorizontalAlignment="Left" Margin="516,352,-162,0" VerticalAlignment="Top" Width="100" Foreground="White"/>
         <Button Content="Ok" HorizontalAlignment="Left" Margin="515,415,-136,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
