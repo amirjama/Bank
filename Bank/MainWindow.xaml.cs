@@ -29,11 +29,25 @@ namespace Bank
           
         }
 
+        private void UppdateUi()
+        {
+            coboAccount.ItemsSource = null;
+            coboAccount.ItemsSource = ActiveCustomer.GetMyList();
+
+            coboCustomer.ItemsSource = null;
+            coboCustomer.ItemsSource = customers;
+
+        }
+
         List<Customer> customers = new List<Customer>();
         Customer ActiveCustomer = new Customer();
+        BankAccount bankAccount;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            UppdateUi();
+
+
 
             if ((bool)radioBtnMakeDeposit.IsChecked)
             {
@@ -42,9 +56,21 @@ namespace Bank
 
             else if ((bool)radioBtnMakeWithdrawal.IsChecked)
             {
-                bankAccount.MakeWithdrawal(decimal.Parse(txtMoney.Text));
+
+                if ((bool)bankAccount.MakeWithdrawal(decimal.Parse(txtMoney.Text)))
+                {
+
+                  bankAccount.MakeWithdrawal(decimal.Parse(txtMoney.Text));
+                }
+
+                else
+                {
+                    MessageBox.Show("Du har inte pengar din fattiglapp");
+                }
 
             }
+
+            
 
         }
 
@@ -62,12 +88,11 @@ namespace Bank
 
             };
             customers.Add(ActiveCustomer);
-            
-            coboCustomer.ItemsSource= customers;
+
+            UppdateUi();
 
 
         }
-            BankAccount bankAccount;
         public void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
@@ -101,15 +126,14 @@ namespace Bank
 
 
 
-            coboAccount.ItemsSource = null;
-            coboAccount.ItemsSource = ActiveCustomer.GetMyList();
+            UppdateUi();
 
         }
 
 
         private void coboCustomer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            UppdateUi();
         }
        
 

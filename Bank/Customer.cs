@@ -35,7 +35,7 @@ namespace Bank
 
         }
 
-        public override string ToString()// skriver ut mina propbertis 
+        public override string ToString()// skriver ut mina prop
         {
 
             return $" {FirstName} {LastName} {Cellphone}";
