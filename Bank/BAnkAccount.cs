@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    public abstract class BankAccount 
+    public abstract class BankAccount // kan inte skapa objekt 
     {
         public string AccountType { get; protected set;}
         public decimal Balance { get; protected set; } 

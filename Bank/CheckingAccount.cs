@@ -12,6 +12,11 @@ namespace Bank
         {
             AccountType = "CheckingsAccount";
             Credit = 0;
+
+
+
+
+
             
         }
 

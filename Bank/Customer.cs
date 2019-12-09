@@ -16,7 +16,7 @@ namespace Bank
         public decimal Cellphone { get; set; }
         private List<BankAccount> Accounts { get; set; }
 
-        public Customer()
+        public Customer() // gör en ny lista när systemet körs 
         {
             Accounts = new List<BankAccount>();
         }

@@ -92,6 +92,7 @@ namespace Bank
             UppdateUi();
 
 
+
         }
         public void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -131,11 +132,6 @@ namespace Bank
         }
 
 
-        private void coboCustomer_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UppdateUi();
-        }
-       
 
     }
 }
